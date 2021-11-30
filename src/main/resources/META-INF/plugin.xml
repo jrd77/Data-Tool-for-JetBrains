@@ -1,10 +1,10 @@
 <idea-plugin>
-    <id>com.github.jrd77.redis-simple-free.id</id>
-    <name>Redis-Simple-Free</name>
+    <id>com.github.jrd77.redis-client-free.id</id>
+    <name>Redis-Client-Free</name>
     <vendor email="jrd77@qq.com" url="http://www.devinstall.top">jrd77</vendor>
 
     <description><![CDATA[
-    Redis Simple Free is a free redis manager<br>
+    Redis Client is a free redis manager<br>
     <em>Simple Redis manager</em>
     ]]></description>
 
