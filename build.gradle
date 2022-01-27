@@ -18,6 +18,8 @@ repositories {
 dependencies {
 //    implementation group: 'redis.clients', name: 'jedis', version: '3.7.0'
     testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.8.2'
+    // https://mvnrepository.com/artifact/com.github.vertical-blank/sql-formatter
+    implementation 'com.github.vertical-blank:sql-formatter:2.0.3'
 
 }
 
