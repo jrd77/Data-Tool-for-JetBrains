@@ -8,6 +8,7 @@ version '0.0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
+//    最好配置一下代理,或者在设置里直接简单'检查连接',看看能否连接 google,需要从外网下载一些依赖
     maven { url "https://www.jetbrains.com/intellij-repository/releases" }
     maven { url "https://www.jetbrains.com/intellij-repository/snapshots" }
     maven { url "https://cache-redirector.jetbrains.com/intellij-dependencies" }
