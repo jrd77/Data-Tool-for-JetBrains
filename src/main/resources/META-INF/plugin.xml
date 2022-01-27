@@ -1,11 +1,16 @@
 <idea-plugin>
-    <id>com.github.jrd77.redis-client-free.id</id>
-    <name>Redis-Client-Free</name>
+    <id>com.github.jrd77.sql-tool.id</id>
+    <name>SQL-Tool</name>
     <vendor email="jrd77@qq.com" url="http://www.devinstall.top">jrd77</vendor>
 
     <description><![CDATA[
-    Redis Client is a free redis manager<br>
-    <em>Simple Redis manager</em>
+    <em>SQL-Tool</em>
+    1.Parse Mybatis/Hibernate log to SQL. <br>
+    2.Format Long SQL. <br>
+
+     SQL工具
+     1.解析Mybatis/Hibernate日志
+     2.格式化比较长的SQL语句
     ]]></description>
 
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
