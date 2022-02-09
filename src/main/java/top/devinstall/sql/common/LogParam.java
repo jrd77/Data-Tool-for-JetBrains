@@ -2,7 +2,6 @@ package top.devinstall.sql.common;
 
 /**
  * @author zhen.wang
- * @description TODO
  * @date 2022/1/27 17:53
  */
 public class LogParam {

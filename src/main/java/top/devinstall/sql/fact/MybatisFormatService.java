@@ -13,7 +13,7 @@ import java.util.Objects;
 
 /**
  * @author zhen.wang
- * @description TODO
+ * @description mybatis日志转换
  * @date 2022/1/27 17:18
  */
 public class MybatisFormatService implements FormatService {
@@ -23,12 +23,12 @@ public class MybatisFormatService implements FormatService {
 //        String sql="==>  Preparing: update send_sms_mq set status = ?, update_time = ? where id = ? and is_delete = 0 \n" +
 //                "==> Parameters: 2(Integer), 2022-01-27 17:39:51.853(Timestamp), 1234(Long)\n" +
 //                "<==    Updates: 1";
-        String beforeSql = reqVO.getSql();
+        String beforeSql = reqVO.getParamStr();
         String lineSeparator = SqlConstant.SQL_N;
         if (beforeSql.contains(SqlConstant.SQL_RN)) {
             lineSeparator = SqlConstant.SQL_RN;
         }
-        String[] split = reqVO.getSql().split(lineSeparator);
+        String[] split = reqVO.getParamStr().split(lineSeparator);
         String sqlTemplate = null;
         List<String> sqlParams = null;
         List<String> logs = new ArrayList<>();
@@ -64,10 +64,11 @@ public class MybatisFormatService implements FormatService {
                 logs.add(logParam);
             }
         }
-        if (Objects.isNull(sqlTemplate) || sqlTemplate.contains("?")) {
-            sqlTemplate = sqlTemplate.replace("?", "%s");
 
-            String format = String.format(sqlTemplate, logs.toArray(new String[]{}));
+        if (Objects.nonNull(sqlTemplate) && sqlTemplate.contains("?")) {
+            sqlTemplate = sqlTemplate.replace("?", "%s");
+            Object[] objects = logs.toArray();
+            String format = String.format(sqlTemplate, objects);
             SqlFormatResVO resVO = new SqlFormatResVO();
             resVO.setResult(format);
             return resVO;

@@ -5,7 +5,6 @@ import java.util.List;
 
 /**
  * @author zhen.wang
- * @description TODO
  * @date 2022/1/27 17:42
  */
 public interface SqlConstant {

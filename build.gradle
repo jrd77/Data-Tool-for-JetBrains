@@ -6,6 +6,9 @@ plugins {
 group 'com.github.jrd77'
 version '0.0.1-SNAPSHOT'
 
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
 repositories {
     mavenCentral()
 //    最好配置一下代理,或者在设置里直接简单'检查连接',看看能否连接 google,需要从外网下载一些依赖
@@ -29,8 +32,8 @@ intellij {
 }
 patchPluginXml {
     changeNotes = """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
+      first release version.<br>
+      """
 }
 test {
     useJUnitPlatform()

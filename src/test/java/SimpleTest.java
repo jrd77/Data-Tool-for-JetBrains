@@ -18,7 +18,7 @@ public class SimpleTest {
     public void sqlTest() {
         MybatisFormatService sqlFormatService = new MybatisFormatService();
         SqlFormatReqVO reqVO = new SqlFormatReqVO();
-        reqVO.setSql("==>  Preparing: update send_sms_mq set status = ?, update_time = ? where id = ? and is_delete = 0 \n" +
+        reqVO.setParamStr("==>  Preparing: update send_sms_mq set status = ?, update_time = ? where id = ? and is_delete = 0 \n" +
                 "==> Parameters: 2(Integer), 2022-01-27 17:39:51.853(Timestamp), 1234(Long)\n" +
                 "<==    Updates: 1");
         SqlFormatResVO format = sqlFormatService.format(reqVO);

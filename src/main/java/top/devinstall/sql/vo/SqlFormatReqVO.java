@@ -10,16 +10,16 @@ import top.devinstall.sql.common.FormatEnum;
 
 public class SqlFormatReqVO {
 
-    private String sql;
+    private String paramStr;
 
     private FormatEnum formatEnum;
 
-    public String getSql() {
-        return sql;
+    public String getParamStr() {
+        return paramStr;
     }
 
-    public SqlFormatReqVO setSql(String sql) {
-        this.sql = sql;
+    public SqlFormatReqVO setParamStr(String paramStr) {
+        this.paramStr = paramStr;
         return this;
     }
 
