@@ -14,7 +14,7 @@ public class ShowDataToolWindow extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
 
-        ToolWindowManager.getInstance(Objects.requireNonNull(e.getProject())).getToolWindow("DataToolWindow").show(() -> {
+        ToolWindowManager.getInstance(Objects.requireNonNull(e.getProject())).getToolWindow("Data Tools").show(() -> {
             logger.info("start Data-Tool plugin");
         });
     }

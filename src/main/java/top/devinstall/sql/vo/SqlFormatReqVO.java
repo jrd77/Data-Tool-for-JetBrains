@@ -1,5 +1,6 @@
 package top.devinstall.sql.vo;
 
+import lombok.Data;
 import top.devinstall.sql.common.FormatEnum;
 
 /**
@@ -7,30 +8,10 @@ import top.devinstall.sql.common.FormatEnum;
  * @description TODO
  * @date 2022/1/27 16:42
  */
-
+@Data
 public class SqlFormatReqVO {
 
     private String paramStr;
 
     private FormatEnum formatEnum;
-
-    public String getParamStr() {
-        return paramStr;
-    }
-
-    public SqlFormatReqVO setParamStr(String paramStr) {
-        this.paramStr = paramStr;
-        return this;
-    }
-
-    public FormatEnum getFormatEnum() {
-        return formatEnum;
-    }
-
-    public SqlFormatReqVO setFormatEnum(FormatEnum formatEnum) {
-        this.formatEnum = formatEnum;
-        return this;
-    }
-
-
 }

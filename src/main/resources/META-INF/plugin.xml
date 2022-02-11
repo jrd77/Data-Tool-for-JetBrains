@@ -4,11 +4,11 @@
     <vendor email="jrd77@qq.com" url="http://www.devinstall.top">jrd77</vendor>
 
     <description><![CDATA[
-        <h3>Data-Tool</h3> <br>
+        <h3>Data-Tool</h3>
         1.Parse Mybatis log to SQL. <br>
         2.Format Long SQL. <br>
         <hr>
-        <h3>Data-Tool</h3> <br>
+        <h3>Data-Tool</h3>
         1.解析Mybatis日志 <br>
         2.格式化比较长的SQL语句 <br>
         ]]></description>
@@ -18,15 +18,18 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="DataToolWindow" secondary="true"
-                    icon="AllIcons.General.Note"
+        <toolWindow id="Data Tools" secondary="true"
+                    icon="/img/pluginIcon.svg"
                     anchor="right"
                     factoryClass="top.devinstall.sql.window.SqlWindowFactory"
                     doNotActivateOnStart="true"/>
         <!--        <applicationService serviceImplementation="com.github.jrd77.codecheck.data.persistent.VcsCheckSettingsState"/>-->
         <!--        <checkinHandlerFactory implementation="com.github.jrd77.codecheck.handler.CommitCheckCheckinHandlerFactory"/>-->
     </extensions>
-
+    <projectListeners>
+        <listener class="top.devinstall.sql.window.DataToolWindow"
+                  topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener"/>
+    </projectListeners>
     <actions>
         <action id="ShowDataToolWindowId" class="top.devinstall.sql.action.ShowDataToolWindow"
                 text="Show Data Tool Window" description="Show Data Tool Window">

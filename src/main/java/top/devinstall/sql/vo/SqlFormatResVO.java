@@ -1,20 +1,15 @@
 package top.devinstall.sql.vo;
 
+import lombok.Data;
+
 /**
  * @author zhen.wang
  * @description TODO
  * @date 2022/1/27 16:42
  */
+@Data
 public class SqlFormatResVO {
 
     private String result;
 
-    public String getResult() {
-        return result;
-    }
-
-    public SqlFormatResVO setResult(String result) {
-        this.result = result;
-        return this;
-    }
 }
