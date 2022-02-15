@@ -3,6 +3,8 @@ package top.devinstall.sql.fact;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import top.devinstall.sql.common.SqlConstant;
+import top.devinstall.sql.util.SingleTonUtil;
+import top.devinstall.sql.util.StrUtil;
 import top.devinstall.sql.vo.SqlFormatReqVO;
 import top.devinstall.sql.vo.SqlFormatResVO;
 
@@ -23,6 +25,9 @@ public class MybatisFormatService implements FormatService {
 //        String sql="==>  Preparing: update send_sms_mq set status = ?, update_time = ? where id = ? and is_delete = 0 \n" +
 //                "==> Parameters: 2(Integer), 2022-01-27 17:39:51.853(Timestamp), 1234(Long)\n" +
 //                "<==    Updates: 1";
+        if (!StrUtil.isMybatis(reqVO.getParamStr())) {
+            return SingleTonUtil.get(SqlFormatService.class).format(reqVO);
+        }
         String beforeSql = reqVO.getParamStr();
         String lineSeparator = SqlConstant.SQL_N;
         if (beforeSql.contains(SqlConstant.SQL_RN)) {
