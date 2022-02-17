@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.github.jrd77'
-version '0.0.1-SNAPSHOT'
+version '0.1-SNAPSHOT'
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
@@ -19,13 +19,11 @@ repositories {
 
 
 dependencies {
-//    implementation group: 'redis.clients', name: 'jedis', version: '3.7.0'
-    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.8.2'
-    // https://mvnrepository.com/artifact/com.github.vertical-blank/sql-formatter
     implementation 'com.github.vertical-blank:sql-formatter:2.0.3'
-// https://mvnrepository.com/artifact/org.projectlombok/lombok
+    implementation 'com.cedarsoftware:json-io:4.13.0'
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.8.2'
 
 }
 
@@ -35,7 +33,9 @@ intellij {
 }
 patchPluginXml {
     changeNotes = """
-      first release version.<br>
+        1.Parse Mybatis log to SQL. <br>
+        2.Format Long SQL. <br>
+        3.Format JSON String. <br>
       """
 }
 test {

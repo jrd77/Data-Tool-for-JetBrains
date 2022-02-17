@@ -7,14 +7,14 @@ import com.intellij.openapi.wm.ToolWindowManager;
 import java.util.Objects;
 import java.util.logging.Logger;
 
-public class ShowDataToolWindow extends AnAction {
+public class ShowDataToolWindowAction extends AnAction {
 
-    private static final Logger logger = Logger.getLogger(ShowDataToolWindow.class.getName());
+    private static final Logger logger = Logger.getLogger(ShowDataToolWindowAction.class.getName());
 
     @Override
     public void actionPerformed(AnActionEvent e) {
 
-        ToolWindowManager.getInstance(Objects.requireNonNull(e.getProject())).getToolWindow("Data Tools").show(() -> {
+        ToolWindowManager.getInstance(Objects.requireNonNull(e.getProject())).getToolWindow("DataTool").show(() -> {
             logger.info("start Data-Tool plugin");
         });
     }

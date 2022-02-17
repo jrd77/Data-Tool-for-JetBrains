@@ -1,8 +1,7 @@
 package top.devinstall.sql.fact;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
 import top.devinstall.sql.common.SqlConstant;
+import top.devinstall.sql.util.CollUtil;
 import top.devinstall.sql.util.SingleTonUtil;
 import top.devinstall.sql.util.StrUtil;
 import top.devinstall.sql.vo.SqlFormatReqVO;
@@ -25,7 +24,11 @@ public class MybatisFormatService implements FormatService {
 //        String sql="==>  Preparing: update send_sms_mq set status = ?, update_time = ? where id = ? and is_delete = 0 \n" +
 //                "==> Parameters: 2(Integer), 2022-01-27 17:39:51.853(Timestamp), 1234(Long)\n" +
 //                "<==    Updates: 1";
-        if (!StrUtil.isMybatis(reqVO.getParamStr())) {
+        if (StrUtil.isJson(reqVO.getParamStr())) {
+            return SingleTonUtil.get(JsonFormatService.class).format(reqVO);
+        }
+
+        if (StrUtil.isSql(reqVO.getParamStr())) {
             return SingleTonUtil.get(SqlFormatService.class).format(reqVO);
         }
         String beforeSql = reqVO.getParamStr();
@@ -47,11 +50,11 @@ public class MybatisFormatService implements FormatService {
                 String sqlPramLog = s.substring(index + SqlConstant.SQL_Parameters.length());
                 sqlParams = Arrays.asList(sqlPramLog.split(","));
             }
-            if (StringUtils.isNotBlank(sqlTemplate) && Objects.nonNull(sqlParams)) {
+            if (StrUtil.isNotBlank(sqlTemplate) && Objects.nonNull(sqlParams)) {
                 break;
             }
         }
-        if (CollectionUtils.isNotEmpty(sqlParams)) {
+        if (CollUtil.isNotEmpty(sqlParams)) {
             for (String sqlParam : sqlParams) {
                 String[] param = sqlParam.split("\\(");
                 if (param.length != 2) {

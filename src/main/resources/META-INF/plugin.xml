@@ -1,40 +1,33 @@
 <idea-plugin>
     <id>com.github.jrd77.data-tool.id</id>
     <name>Data-Tool</name>
-    <vendor email="jrd77@qq.com" url="http://www.devinstall.top">jrd77</vendor>
+    <vendor email="jrd77@qq.com" url="https://gitee.com/jrd77/redis-client-for-jet-brains">jrd77</vendor>
 
     <description><![CDATA[
         <h3>Data-Tool</h3>
         1.Parse Mybatis log to SQL. <br>
         2.Format Long SQL. <br>
+        3.Format JSON String. <br>
         <hr>
-        <h3>Data-Tool</h3>
         1.解析Mybatis日志 <br>
         2.格式化比较长的SQL语句 <br>
+        3.格式化JSON字符串 <br>
         ]]></description>
     <idea-version since-build="193.5233.102" until-build="213.*"/>
-    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="Data Tools" secondary="true"
+        <toolWindow id="DataTool" secondary="true"
                     icon="/img/pluginIcon.svg"
                     anchor="right"
                     factoryClass="top.devinstall.sql.window.SqlWindowFactory"
                     doNotActivateOnStart="true"/>
-        <!--        <applicationService serviceImplementation="com.github.jrd77.codecheck.data.persistent.VcsCheckSettingsState"/>-->
-        <!--        <checkinHandlerFactory implementation="com.github.jrd77.codecheck.handler.CommitCheckCheckinHandlerFactory"/>-->
     </extensions>
-    <projectListeners>
-        <listener class="top.devinstall.sql.window.DataToolWindow"
-                  topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener"/>
-    </projectListeners>
+
     <actions>
-        <action id="ShowDataToolWindowId" class="top.devinstall.sql.action.ShowDataToolWindow"
-                text="Show Data Tool Window" description="Show Data Tool Window">
+        <action id="ShowDataToolWindowId" class="top.devinstall.sql.action.ShowDataToolWindowAction"
+                text="Show Data Tool Window" description="Show data tool window">
             <add-to-group group-id="WindowMenu" anchor="first"/>
-            <!--          <keyboard-shortcut keymap="$default" first-keystroke="ctrl I"/>-->
         </action>
     </actions>
 </idea-plugin>
