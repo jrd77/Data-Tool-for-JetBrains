@@ -2,7 +2,6 @@ package top.devinstall.sql.common;
 
 import com.intellij.ui.Gray;
 
-import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
 
