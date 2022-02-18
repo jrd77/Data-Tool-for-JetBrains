@@ -1,7 +1,6 @@
 package top.devinstall.sql.common;
 
-import com.intellij.ui.Gray;
-
+import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,7 +17,6 @@ public interface SqlConstant {
     String SQL_RN = "\r\n";
     String SQL_N = "\n";
     String MICROSOFT_YAHEI = "Microsoft YaHei UI";
-    Color GRAY = Gray._62;
     Color CYAN = new Color(60, 232, 88);
     Font DEFAULT_FONT_16 = new Font(Font.SERIF, Font.PLAIN, 16);
     Font YAHEI_FONT_16 = new Font(MICROSOFT_YAHEI, Font.PLAIN, 16);

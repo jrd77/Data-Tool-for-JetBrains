@@ -1,13 +1,16 @@
 <idea-plugin>
     <id>com.github.jrd77.data-tool.id</id>
     <name>Data-Tool</name>
-    <vendor email="jrd77@qq.com" url="https://gitee.com/jrd77/redis-client-for-jet-brains">jrd77</vendor>
+    <vendor email="jrd77@qq.com" url="https://github.com/jrd77/Data-Tool-for-JetBrains">jrd77</vendor>
 
     <description><![CDATA[
         <h3>Data-Tool</h3>
         1.Parse Mybatis log to SQL. <br>
-        2.Format Long SQL. <br>
-        3.Format JSON String. <br>
+        2.Pretty Long SQL. <br>
+        3.Pretty JSON String. <br>
+        <hr>
+        you can use origin string input the <i>'Before'
+            Textarea</i>,into you excepted result (support JSON Pretty,Long-SQL Pretty,MybatisLog Parse)
         <hr>
         1.解析Mybatis日志 <br>
         2.格式化比较长的SQL语句 <br>
