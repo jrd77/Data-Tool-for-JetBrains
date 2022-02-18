@@ -33,5 +33,5 @@ public interface SqlConstant {
 
     GraphicsEnvironment e = GraphicsEnvironment.getLocalGraphicsEnvironment();
     String[] FONT_NAMES = e.getAvailableFontFamilyNames();
-    List<String> SYSTEM_FONT_LIST = List.of(FONT_NAMES);
+    List<String> SYSTEM_FONT_LIST = Arrays.asList(FONT_NAMES);
 }
