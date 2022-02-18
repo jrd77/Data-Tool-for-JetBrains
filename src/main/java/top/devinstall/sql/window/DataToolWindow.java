@@ -3,9 +3,7 @@ package top.devinstall.sql.window;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.util.ui.JBUI;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 import top.devinstall.sql.common.MessageConstant;
 import top.devinstall.sql.common.SqlConstant;
 import top.devinstall.sql.handle.EventHandleService;
@@ -14,9 +12,7 @@ import top.devinstall.sql.util.SingleTonUtil;
 
 import javax.swing.*;
 
-@Getter
-@Setter
-@NoArgsConstructor
+
 public class DataToolWindow {
     public static final String LONG_SQL = "LongSQL";
     public static final String MYBATIS = "Mybatis";
@@ -114,4 +110,118 @@ public class DataToolWindow {
     }
 
 
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
+
+    public void setMainPanel(JPanel mainPanel) {
+        this.mainPanel = mainPanel;
+    }
+
+    public JRadioButton getRadioMybatis() {
+        return radioMybatis;
+    }
+
+    public void setRadioMybatis(JRadioButton radioMybatis) {
+        this.radioMybatis = radioMybatis;
+    }
+
+    public JRadioButton getRadioSql() {
+        return radioSql;
+    }
+
+    public void setRadioSql(JRadioButton radioSql) {
+        this.radioSql = radioSql;
+    }
+
+    public JRadioButton getRadioJson() {
+        return radioJson;
+    }
+
+    public void setRadioJson(JRadioButton radioJson) {
+        this.radioJson = radioJson;
+    }
+
+    public JTextArea getTextBefore() {
+        return textBefore;
+    }
+
+    public void setTextBefore(JTextArea textBefore) {
+        this.textBefore = textBefore;
+    }
+
+    public JTextArea getTextAfter() {
+        return textAfter;
+    }
+
+    public void setTextAfter(JTextArea textAfter) {
+        this.textAfter = textAfter;
+    }
+
+    public JButton getBtnFormat() {
+        return btnFormat;
+    }
+
+    public void setBtnFormat(JButton btnFormat) {
+        this.btnFormat = btnFormat;
+    }
+
+    public JButton getBtnCopy() {
+        return btnCopy;
+    }
+
+    public void setBtnCopy(JButton btnCopy) {
+        this.btnCopy = btnCopy;
+    }
+
+    public JLabel getAfterLabel() {
+        return afterLabel;
+    }
+
+    public void setAfterLabel(JLabel afterLabel) {
+        this.afterLabel = afterLabel;
+    }
+
+    public JLabel getBeforeLabel() {
+        return beforeLabel;
+    }
+
+    public void setBeforeLabel(JLabel beforeLabel) {
+        this.beforeLabel = beforeLabel;
+    }
+
+    public JLabel getTipLabel() {
+        return tipLabel;
+    }
+
+    public void setTipLabel(JLabel tipLabel) {
+        this.tipLabel = tipLabel;
+    }
+
+    public JComboBox getComboBoxSqlType() {
+        return comboBoxSqlType;
+    }
+
+    public void setComboBoxSqlType(JComboBox comboBoxSqlType) {
+        this.comboBoxSqlType = comboBoxSqlType;
+    }
+
+    public JPanel getBtnPanel() {
+        return btnPanel;
+    }
+
+    public void setBtnPanel(JPanel btnPanel) {
+        this.btnPanel = btnPanel;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    public DataToolWindow() {
+    }
 }

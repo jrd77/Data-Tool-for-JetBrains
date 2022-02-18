@@ -1,24 +1,32 @@
 <idea-plugin>
     <id>com.github.jrd77.data-tool.id</id>
     <name>Data-Tool</name>
-    <vendor email="jrd77@qq.com" url="https://gitee.com/jrd77/redis-client-for-jet-brains">jrd77</vendor>
+    <vendor email="jrd77@qq.com" url="https://github.com/jrd77/Data-Tool-for-JetBrains">jrd77</vendor>
 
     <description><![CDATA[
         <h3>Data-Tool</h3>
-        1.Parse Mybatis log to SQL. <br>
-        2.Format Long SQL. <br>
-        3.Format JSON String. <br>
+        <strong> This plugin help you parse/pretty origin code,like <i>Long-SQL/Mybatis SQL Log /JSON String</i></strong>
+
+        <ul>
+            <li>Parse Mybatis log to SQL.</li>
+            <li>Format Long SQL.</li>
+            <li>Format JSON String.</li>
+         </ul>
         <hr>
-        1.解析Mybatis日志 <br>
-        2.格式化比较长的SQL语句 <br>
-        3.格式化JSON字符串 <br>
+
+        <ul>
+            <li>解析Mybatis日志.</li>
+            <li>格式化比较长的SQL语句 </li>
+            <li>格式化JSON字符串</li>
+         </ul>
+        If you have question or other idea,you can send email to me(jrd7777@foxmail.com)
         ]]></description>
-    <idea-version since-build="193.5233.102" until-build="213.*"/>
+    <idea-version since-build="181.4684.4" until-build="213.*"/>
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow id="DataTool" secondary="true"
-                    icon="/img/pluginIcon.svg"
+
                     anchor="right"
                     factoryClass="top.devinstall.sql.window.SqlWindowFactory"
                     doNotActivateOnStart="true"/>

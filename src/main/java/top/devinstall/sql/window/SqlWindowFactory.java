@@ -12,6 +12,7 @@ import top.devinstall.sql.common.MessageConstant;
 import top.devinstall.sql.util.InterUtil;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.Objects;
 
 /**
@@ -23,8 +24,6 @@ public class SqlWindowFactory implements ToolWindowFactory {
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
         DataToolWindow myToolWindow = new DataToolWindow(project, toolWindow);
-        Icon icon = IconLoader.getIcon("img/pluginIcon.svg", Objects.requireNonNull(ReflectionUtil.getGrandCallerClass()));
-        toolWindow.setIcon(icon);
         ContentFactory contentFactory = ContentFactory.SERVICE.getInstance();
         Content content = contentFactory.createContent(myToolWindow.getMainPanel(), InterUtil.getValue(MessageConstant.PLUGIN_NAME), false);
         toolWindow.getContentManager().addContent(content);
