@@ -6,14 +6,18 @@
     <description><![CDATA[
         <h3>Data-Tool</h3>
         <strong> This plugin help you parse/pretty origin code,like <i>Long-SQL/Mybatis SQL Log /JSON String</i></strong>
-
+        <br>
+        You can click menu 'Window'-->'Show Data Tool Window' Open the ToolWindow,and select suitable type to format the input-code,the result will show in TextArea 'Result'.
+        <br>
+        <strong>plugin Features:</strong>
         <ul>
             <li>Parse Mybatis log to SQL.</li>
             <li>Format Long SQL.</li>
             <li>Format JSON String.</li>
          </ul>
         <hr>
-
+        <br>
+        特性:
         <ul>
             <li>解析Mybatis日志.</li>
             <li>格式化比较长的SQL语句 </li>
