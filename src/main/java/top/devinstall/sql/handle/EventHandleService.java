@@ -24,51 +24,17 @@ public class EventHandleService {
 
     private final ExecutorService executorService = Executors.newFixedThreadPool(2);
 
-    /**
-     * Format按钮点击事件
-     *
-     * @param dataToolWindow
-     */
-    public void formatEvent(DataToolWindow dataToolWindow) {
+    private static FormatEnum formStr(String str) {
 
-        //获取提示标签
-        JLabel tipLabel = dataToolWindow.getTipLabel();
-        //获取待格式化文本域
-        JTextArea textBefore = dataToolWindow.getTextBefore();
-        //获取格式化后文本域
-        JTextArea textAfter = dataToolWindow.getTextAfter();
-        //单选按钮
-        JRadioButton radioSql = dataToolWindow.getRadioSql();
-        //重置提示标签
-        tipLabel.setText(StrUtil.EMPTY);
-        String beforeText = textBefore.getText();
-        //待格式化文本域为空则提示
-        if (StrUtil.isBlank(beforeText)) {
-            tipLabel.setText(InterUtil.getValue(MessageConstant.TIPS_LABEL_1));
-            tipLabel.setFont(SqlConstant.YAHEI_FONT_BOLD_16);
-            tipLabel.setForeground(JBColor.RED);
-            wait2Second(tipLabel);
-            return;
-        }
-        //根据文本类型不同,选择不同service进行格式化 -start
-        JRadioButton radioMybatis = dataToolWindow.getRadioMybatis();
-        FormatEnum formatEnum;
-        //选择文本类型
-        if (radioMybatis.isSelected()) {
-            formatEnum = FormatEnum.MYBATIS;
-        } else if (radioSql.isSelected()) {
-            formatEnum = FormatEnum.LONG_SQL;
+        if (StrUtil.isBlank(str)) {
+            return FormatEnum.JSON;
+        } else if (StrUtil.isJson(str)) {
+            return FormatEnum.JSON;
+        } else if (StrUtil.isMybatis(str)) {
+            return FormatEnum.MYBATIS;
         } else {
-            formatEnum = FormatEnum.JSON;
+            return FormatEnum.LONG_SQL;
         }
-        FormatService formatService = getFormatService(formatEnum);
-        //构造请求参数
-        SqlFormatReqVO sqlFormatReqVO = buildReqVO(beforeText, formatEnum);
-        SqlFormatResVO resVO = formatService.format(sqlFormatReqVO);
-        //根据文本类型不同,选择不同service进行格式化 -end
-        String result = resVO == null ? StrUtil.EMPTY : resVO.getResult();
-        //设置到格式化后文本域显示
-        textAfter.setText(result);
     }
 
     /**
@@ -124,5 +90,56 @@ public class EventHandleService {
             }
             tip.setText(StrUtil.EMPTY);
         });
+    }
+
+    /**
+     * Format按钮点击事件
+     *
+     * @param dataToolWindow
+     */
+    public void formatEvent(DataToolWindow dataToolWindow) {
+
+        //获取提示标签
+        JLabel tipLabel = dataToolWindow.getTipLabel();
+        //获取待格式化文本域
+        JTextArea textBefore = dataToolWindow.getTextBefore();
+        //获取格式化后文本域
+        JTextArea textAfter = dataToolWindow.getTextAfter();
+        //单选按钮
+        JRadioButton radioSql = dataToolWindow.getRadioSql();
+        //自动辨认类型
+        JRadioButton radioAuto = dataToolWindow.getRadioAuto();
+        //重置提示标签
+        tipLabel.setText(StrUtil.EMPTY);
+        String beforeText = textBefore.getText();
+        //待格式化文本域为空则提示
+        if (StrUtil.isBlank(beforeText)) {
+            tipLabel.setText(InterUtil.getValue(MessageConstant.TIPS_LABEL_1));
+            tipLabel.setFont(SqlConstant.YAHEI_FONT_BOLD_16);
+            tipLabel.setForeground(JBColor.RED);
+            wait2Second(tipLabel);
+            return;
+        }
+        //根据文本类型不同,选择不同service进行格式化 -start
+        JRadioButton radioMybatis = dataToolWindow.getRadioMybatis();
+        FormatEnum formatEnum;
+        //选择文本类型
+        if (radioAuto.isSelected()) {
+            formatEnum = formStr(beforeText);
+        } else if (radioMybatis.isSelected()) {
+            formatEnum = FormatEnum.MYBATIS;
+        } else if (radioSql.isSelected()) {
+            formatEnum = FormatEnum.LONG_SQL;
+        } else {
+            formatEnum = FormatEnum.JSON;
+        }
+        FormatService formatService = getFormatService(formatEnum);
+        //构造请求参数
+        SqlFormatReqVO sqlFormatReqVO = buildReqVO(beforeText, formatEnum);
+        SqlFormatResVO resVO = formatService.format(sqlFormatReqVO);
+        //根据文本类型不同,选择不同service进行格式化 -end
+        String result = resVO == null ? StrUtil.EMPTY : resVO.getResult();
+        //设置到格式化后文本域显示
+        textAfter.setText(result);
     }
 }

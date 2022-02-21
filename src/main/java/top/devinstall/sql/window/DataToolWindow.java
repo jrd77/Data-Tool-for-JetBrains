@@ -3,7 +3,6 @@ package top.devinstall.sql.window;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.util.ui.JBUI;
-
 import top.devinstall.sql.common.MessageConstant;
 import top.devinstall.sql.common.SqlConstant;
 import top.devinstall.sql.handle.EventHandleService;
@@ -32,6 +31,7 @@ public class DataToolWindow {
     private JLabel tipLabel;
     private JComboBox comboBoxSqlType;
     private JPanel btnPanel;
+    private JRadioButton radioAuto;
 
 
     private Project project;
@@ -68,6 +68,7 @@ public class DataToolWindow {
         formatType.add(radioSql);
         formatType.add(radioMybatis);
         formatType.add(radioJson);
+        formatType.add(radioAuto);
         radioMybatis.setSelected(Boolean.TRUE);
         textBefore.setLineWrap(Boolean.TRUE);
         textBefore.setFont(SqlConstant.DEFAULT_FONT_16);
@@ -87,12 +88,6 @@ public class DataToolWindow {
 
     }
 
-    private void comobox(JComboBox comboBoxSqlType) {
-        comboBoxSqlType.addItem("MySQL");
-        comboBoxSqlType.addItem("Oracle");
-        comboBoxSqlType.addItem("PgSQL");
-        comboBoxSqlType.addItem("MsSQL");
-    }
 
     private void actionEvent() {
         EventHandleService eventHandleService = SingleTonUtil.get(EventHandleService.class);
@@ -220,6 +215,15 @@ public class DataToolWindow {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public JRadioButton getRadioAuto() {
+        return radioAuto;
+    }
+
+    public DataToolWindow setRadioAuto(JRadioButton radioAuto) {
+        this.radioAuto = radioAuto;
+        return this;
     }
 
     public DataToolWindow() {
