@@ -14,15 +14,15 @@
             <li>Parse Mybatis log to SQL.</li>
             <li>Format Long SQL.</li>
             <li>Format JSON String.</li>
-         </ul>
+        </ul>
         <hr>
         <br>
-        特性:
+        <strong>特性:</strong>
         <ul>
             <li>解析Mybatis日志.</li>
-            <li>格式化比较长的SQL语句 </li>
+            <li>格式化比较长的SQL语句</li>
             <li>格式化JSON字符串</li>
-         </ul>
+        </ul>
         If you have question or other idea,you can send email to me(jrd7777@foxmail.com)
         ]]></description>
     <idea-version since-build="181.4684.4" until-build="213.*"/>
