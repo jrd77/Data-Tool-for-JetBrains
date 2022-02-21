@@ -69,7 +69,7 @@ public class DataToolWindow {
         formatType.add(radioMybatis);
         formatType.add(radioJson);
         formatType.add(radioAuto);
-        radioMybatis.setSelected(Boolean.TRUE);
+        radioAuto.setSelected(Boolean.TRUE);
         textBefore.setLineWrap(Boolean.TRUE);
         textBefore.setFont(SqlConstant.DEFAULT_FONT_16);
         textBefore.setMargin(JBUI.insets(10));
