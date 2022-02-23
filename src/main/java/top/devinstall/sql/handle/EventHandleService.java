@@ -122,20 +122,20 @@ public class EventHandleService {
         }
         //根据文本类型不同,选择不同service进行格式化 -start
         JRadioButton radioMybatis = dataToolWindow.getRadioMybatis();
-        FormatEnum formatEnum;
+
+        SqlFormatReqVO sqlFormatReqVO;
         //选择文本类型
         if (radioAuto.isSelected()) {
-            formatEnum = formStr(beforeText);
+            sqlFormatReqVO = buildReqVO(beforeText, formStr(beforeText));
         } else if (radioMybatis.isSelected()) {
-            formatEnum = FormatEnum.MYBATIS;
+            sqlFormatReqVO = buildReqVO(beforeText, FormatEnum.MYBATIS);
         } else if (radioSql.isSelected()) {
-            formatEnum = FormatEnum.LONG_SQL;
+            sqlFormatReqVO = buildReqVO(beforeText, FormatEnum.LONG_SQL);
         } else {
-            formatEnum = FormatEnum.JSON;
+            sqlFormatReqVO = buildReqVO(beforeText, FormatEnum.JSON);
         }
-        FormatService formatService = getFormatService(formatEnum);
+        FormatService formatService = getFormatService(sqlFormatReqVO.getFormatEnum());
         //构造请求参数
-        SqlFormatReqVO sqlFormatReqVO = buildReqVO(beforeText, formatEnum);
         SqlFormatResVO resVO = formatService.format(sqlFormatReqVO);
         //根据文本类型不同,选择不同service进行格式化 -end
         String result = resVO == null ? StrUtil.EMPTY : resVO.getResult();

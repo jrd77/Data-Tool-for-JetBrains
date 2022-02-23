@@ -29,7 +29,6 @@ public class DataToolWindow {
     private JLabel afterLabel;
     private JLabel beforeLabel;
     private JLabel tipLabel;
-    private JComboBox comboBoxSqlType;
     private JPanel btnPanel;
     private JRadioButton radioAuto;
 
@@ -84,8 +83,6 @@ public class DataToolWindow {
             textAfter.setFont(SqlConstant.YAHEI_FONT_16);
             textBefore.setFont(SqlConstant.YAHEI_FONT_16);
         }
-        comboBoxSqlType.setVisible(false);
-
     }
 
 
@@ -191,14 +188,6 @@ public class DataToolWindow {
 
     public void setTipLabel(JLabel tipLabel) {
         this.tipLabel = tipLabel;
-    }
-
-    public JComboBox getComboBoxSqlType() {
-        return comboBoxSqlType;
-    }
-
-    public void setComboBoxSqlType(JComboBox comboBoxSqlType) {
-        this.comboBoxSqlType = comboBoxSqlType;
     }
 
     public JPanel getBtnPanel() {
