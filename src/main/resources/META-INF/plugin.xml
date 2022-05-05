@@ -23,8 +23,11 @@
             <li>格式化比较长的SQL语句</li>
             <li>格式化JSON字符串</li>
         </ul>
-        If you have question or other idea,you can send email to me(jrd7777@foxmail.com)
+        If you have any question or other idea,you can send email to me(jrd7777@foxmail.com)
         ]]></description>
+    <change-notes>
+        fix some bugs.
+    </change-notes>
     <idea-version since-build="181.4684.4" until-build="213.*"/>
     <depends>com.intellij.modules.platform</depends>
 
